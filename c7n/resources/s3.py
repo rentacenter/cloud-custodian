@@ -325,7 +325,7 @@ class ConfigS3(query.ConfigSource):
 
     def handle_BucketVersioningConfiguration(self, resource, item_value):
         # Config defaults versioning to 'Off' for a null value
-        if item_value['status'] not in ('Enabled', 'Suspended'):
+        if item_value['status'] not in ('Off','Enabled', 'Suspended'):
             return
         resource['Versioning'] = {'Status': item_value['status']}
         if item_value['isMfaDeleteEnabled']:
